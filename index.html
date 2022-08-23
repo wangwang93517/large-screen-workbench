@@ -1,0 +1,45 @@
+<!--
+ * @Author: Xu Wang
+ * @Date: 2022-08-20 01:08:57
+ * @LastEditTime: 2022-08-20 02:14:24
+ * @LastEditors: Xu Wang
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Vue + TS</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    (function (designWidth, minWidth) {
+      let docEle = document.documentElement
+      let screenRatioByDesign = 16 / 9
+      function setHtmlFontSize() {
+        var screenRatio = docEle.clientWidth / docEle.clientHeight;
+        var fontSize = (
+          screenRatio > screenRatioByDesign
+            ? (screenRatioByDesign / screenRatio)
+            : 1
+        ) * docEle.clientWidth / 10;
+
+        docEle.style.fontSize = fontSize.toFixed(3) + "px";
+        1
+      }
+
+      setHtmlFontSize()
+
+      window.addEventListener('resize', setHtmlFontSize)
+
+    })(1920, 1024);
+  </script>
+</body>
+
+</html>
