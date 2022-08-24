@@ -1,16 +1,14 @@
 <!--
  * @Author: Xu Wang
  * @Date: 2022-08-20 01:39:32
- * @LastEditTime: 2022-08-20 13:41:41
+ * @LastEditTime: 2022-08-24 23:00:48
  * @LastEditors: Xu Wang
  * @Description: 
 -->
 <template>
-	<div class="absolute left-0 top-0 right-0 bottom-0 w-full h-full flex justify-center items-center bg-white">
-		<div ref="scaleRef" class="scale bg-red-700 text-white text-xl flex justify-center items-center flex-col">
-			<div>SCALE</div>
-			<div>1920 * 1080</div>
-		</div>
+	<div ref="scaleRef" class="scale bg-red-700 text-white text-xl flex justify-center items-center flex-col">
+		<div>SCALE</div>
+		<div>1920 * 1080</div>
 	</div>
 </template>
 <script lang="ts" setup name="DemoScale">
@@ -27,13 +25,16 @@
 		const widthScale = (width / 1920).toFixed(10)
 		const heightScale = (height / 1080).toFixed(10)
 		const scale = widthScale < heightScale ? widthScale : heightScale
-		// document.body.style.zoom = scale
-		console.log('scale setHtmlFontSize')
-		// Zoom 方式
+
 		document.documentElement.style.fontSize = '192px'
-		document.body.style.cssText = 'zoom:' + scale + ''
-		// scaleRef.value.style.transform = `scale(${scale}) translateX(-50%)`
-		// scaleRef.value.style.transformOrigin = 'left top'
+		scaleRef.value.style.transform = `scale(${scale})`
+		scaleRef.value.style.transformOrigin = 'left top'
+		if (widthScale > heightScale) {
+			document.body.style.marginLeft = (width - 1920 * Number(scale)) / 2 + 'px'
+		} else {
+			document.body.style.marginTop = (height - 1080 * Number(scale)) / 2 + 'px'
+		}
+		document.body.style.marginLeft = (width - 1920 * Number(scale)) / 2 + 'px'
 	}
 	onMounted(() => {
 		setHtmlScale()

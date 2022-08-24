@@ -13,12 +13,12 @@ module.exports = {
 				'last 5 versions' // 所有主流浏览器最近10版本用
 			],
 			grid: true
-		},
-		'postcss-pxtorem': {
-			rootValue: 192,
-			unitPrecision: 5,
-			propList: ['*'], // 需要被转换的属性
-			exclude: /node_modules/i
 		}
+		// 'postcss-pxtorem': {
+		// 	// rootValue: 192,
+		// 	// unitPrecision: 5,
+		// 	// propList: ['*'], // 需要被转换的属性
+		// 	// exclude: /node_modules/i
+		// }
 	}
 }
