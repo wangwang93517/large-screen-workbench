@@ -1,7 +1,7 @@
 <!--
  * @Author: Xu Wang
  * @Date: 2022-08-20 01:39:32
- * @LastEditTime: 2022-08-25 00:37:38
+ * @LastEditTime: 2022-08-30 01:08:46
  * @LastEditors: Xu Wang
  * @Description: 
 -->
@@ -38,12 +38,14 @@
 		document.documentElement.style.fontSize = props.rootValue + 'px'
 		scaleRef.value.style.transform = `scale(${scale})`
 		scaleRef.value.style.transformOrigin = 'left top'
+		console.log(props.width * Number(scale))
+		console.log(props.height * Number(scale))
 		if (widthScale > heightScale) {
-			document.body.style.marginLeft = (screenWidth - props.width * Number(scale)) / 2 + 'px'
+			scaleRef.value.style.marginLeft = (screenWidth - Number.parseInt((props.width * Number(scale)).toFixed(2))) / 2 + 'px'
 		} else {
-			document.body.style.marginTop = (screenHeight - props.height * Number(scale)) / 2 + 'px'
+			scaleRef.value.style.marginTop = (screenHeight - Number.parseInt((props.height * Number(scale)).toFixed(2))) / 2 + 'px'
 		}
-		document.body.style.marginLeft = (screenWidth - props.width * Number(scale)) / 2 + 'px'
+		scaleRef.value.style.marginLeft = (screenWidth - Number.parseInt((props.width * Number(scale)).toFixed(2))) / 2 + 'px'
 	}
 	onMounted(() => {
 		reRender()

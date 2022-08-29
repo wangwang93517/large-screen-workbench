@@ -1,7 +1,7 @@
 <!--
  * @Author: Xu Wang
  * @Date: 2022-08-20 01:39:32
- * @LastEditTime: 2022-08-25 00:37:31
+ * @LastEditTime: 2022-08-30 00:56:57
  * @LastEditors: Xu Wang
  * @Description: 
 -->
@@ -32,11 +32,12 @@
 
 		const widthScale = (screenWidth / props.width).toFixed(10)
 		const heightScale = (screenHeight / props.height).toFixed(10)
+		console.log(widthScale, heightScale)
 		const scale = widthScale < heightScale ? widthScale : heightScale
 
 		document.documentElement.style.fontSize = props.rootValue + 'px'
 		nextTick(() => {
-			document.body.style.cssText = 'zoom:' + scale + ''
+			zoomRef.value.style.zoom = scale
 		})
 	}
 	onMounted(() => {

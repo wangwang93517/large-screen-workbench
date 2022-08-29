@@ -1,7 +1,7 @@
 <!--
  * @Author: Xu Wang
  * @Date: 2022-08-20 01:08:57
- * @LastEditTime: 2022-08-25 00:44:13
+ * @LastEditTime: 2022-08-30 01:16:36
  * @LastEditors: Xu Wang
  * @Description: 
 -->
@@ -10,7 +10,12 @@
 	import BigScreenRem from './components/BigScreenRem.vue'
 	import BigScreenScale from './components/BigScreenScale.vue'
 	import BigScreenZoom from './components/BigScreenZoom.vue'
-	const type = ref('zoom')
+	const type = ref('scale')
+	const searchData = new URLSearchParams(window.location.search)
+	const searchDataType = searchData.get('type')
+	if (searchDataType && ['rem', 'scale', 'zoom'].indexOf(searchDataType) !== -1) {
+		type.value = searchDataType
+	}
 </script>
 
 <template>
