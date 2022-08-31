@@ -212,6 +212,9 @@
 - `zoom` 最初仅在 `Internet Explorer` 中实现。尽管其他一些浏览器也支持该属性，但推荐使用`transform: scale()` 来缩放内容。
 - `transform: scale()` 与 `zoom` 的工作方式不同。例如，如果在 `html` 或 `body` 元素上使用`transform: scale(0.6)` ，那么它会调整整个页面的大小，显示一个缩小的页面，周围有巨大的白色边距，而 `zoom: 0.6` 缩放页面上的元素，但不缩放绘制元素的页面本身。
 
+## 代码仓库
+- [Github](https://github.com/wangwang93517/large-screen-workbench.git)
+- [Gitee](https://gitee.com/wangwang93517/large-screen-workbench.git)
 ## 参考链接
 - [大屏数据可视化——屏幕适配方案(多分辨率下）](https://blog.csdn.net/m0_67401153/article/details/123305112)
 - [Can I use zoom](https://caniuse.com/?search=zoom)
